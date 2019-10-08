@@ -1,0 +1,172 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Nuevo Especialista</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" type='image/png' href="favicon.ico" /> <!-- Chrome, Mozila -->
+    <link rel='shortcut icon' type='image/vnd.microsoft.icon' href='favicon.ico'> <!-- IE -->
+    <link rel='apple-touch-icon' type='image/png' href='icon.57.png'> <!-- iPhone -->
+    <link rel='apple-touch-icon' type='image/png' sizes='72x72' href='icon.72.png'> <!-- iPad -->
+    <link rel='apple-touch-icon' type='image/png' sizes='114x114' href='icon.114.png'> <!-- iPhone4 -->
+    <link rel='icon' type='image/png' href='icon.114.png'> <!-- Opera Speed Dial, at least 144×114 px -->
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/form-elements.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+        crossorigin="anonymous">
+
+    <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+</head>
+
+<body>
+    <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+    <nav class="main-menu" id="nav-bar">
+        <ul>
+            <li>
+                <a href="index.html">
+                    <i class="fa fa-home fa-2x"></i>
+                    <span class="nav-text">
+                        Inicio
+                    </span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="#">
+                    <i class="fa fa-user-md fa-2x"></i>
+                    <span class="nav-text">
+                        Agregar Especialista
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="invite.html">
+                    <i class="fa fa-envelope fa-2x"></i>
+                    <span class="nav-text">
+                        Invitar Especialista
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="vimeo.html">
+                    <i class="fab fa-vimeo-v fa-2x"></i>
+                    <span class="nav-text">
+                        Videos
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="registered.html">
+                    <i class="fas fa-hospital-alt fa-2x"></i>
+                    <span class="nav-text">
+                        Médicos Registrados
+                    </span>
+                </a>
+            </li>
+        </ul>
+        <ul class="logout">
+            <li>
+                <a href="#" v-on:click="logout">
+                    <i class="fa fa-power-off fa-2x"></i>
+                    <span class="nav-text">
+                        Cerrar sesión
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="top-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-8">
+                        <div class="admin-form-box">
+                            <div class="form-top">
+                                <div class="form-top-left">
+                                    <h3>Lista de médicos Pendientes</h3>
+                                    <p id="Admin_Fullname">{{Admin_Fullname}} verifica todos los datos antes de
+                                        enviarlos</p>
+                                </div>
+                            </div>
+                            <div class="form-bottom">
+                                <form role="form" id="new-medic-form" @submit.prevent="processForm">
+                                    <div class="form-group">
+                                        <select @change="onChange" class="form-control" id="select-medic">
+                                            <option selected disabled value="null">Selecciona un médico</option>
+                                        </select>
+                                    </div>
+                                    <hr>
+                                    <div class="form-group">
+                                        <input type="text" placeholder="Nombre..." class="form-control" v-model="MedicName"
+                                            required>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" placeholder="Email..." class="form-control" v-model="Email"
+                                            required>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" placeholder="Contraseña..." class="form-control" v-model="Password"
+                                            required readonly>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="number" placeholder="Teléfono..." class="form-control" v-model="MedicPhone"
+                                            required>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" placeholder="Cédula Profesional..." class="form-control"
+                                            v-model="MedicNumber" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="number" placeholder="Código Postal..." class="form-control"
+                                            v-model="CP" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <select class="form-control" v-model="Especiality">
+                                            <option selected disabled value="0">Especialidad</option>
+                                            <option value="1">Traumatólogo</option>
+                                            <option value="2">Reumatólogo</option>
+                                            <option value="3">Médico General</option>
+                                            <option value="4">Médico Internista</option>
+                                            <option value="5">Geriatra</option>
+                                            <option value="6">Ortopédico</option>
+                                            <option value="7">Médico del Deporte</option>
+                                        </select>
+                                    </div>
+                                    <button type="submit" class="btn">Registrar</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!--script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="js/vendor/bootstrap.min.js"></script-->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.5.1/vue-resource.min.js"></script>
+    <script src="js/vendor/sweet.js"></script>
+    <script src="js/global.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+
+</html>

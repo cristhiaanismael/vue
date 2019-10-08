@@ -1,0 +1,117 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" type='image/png' href="favicon.ico" /> <!-- Chrome, Mozila -->
+    <link rel='shortcut icon' type='image/vnd.microsoft.icon' href='favicon.ico'> <!-- IE -->
+    <link rel='apple-touch-icon' type='image/png' href='icon.57.png'> <!-- iPhone -->
+    <link rel='apple-touch-icon' type='image/png' sizes='72x72' href='icon.72.png'> <!-- iPad -->
+    <link rel='apple-touch-icon' type='image/png' sizes='114x114' href='icon.114.png'> <!-- iPhone4 -->
+    <link rel='icon' type='image/png' href='icon.114.png'> <!-- Opera Speed Dial, at least 144×114 px -->
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/nav.css">
+    <link rel="stylesheet" href="css/tables.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+        crossorigin="anonymous">
+
+    <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
+</head>
+
+<body>
+    <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+    <nav class="main-menu" id="nav-bar">
+        <ul>
+            <li>
+                <a href="index.html">
+                    <i class="fa fa-home fa-2x"></i>
+                    <span class="nav-text">
+                        Inicio
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="addMedic.html">
+                    <i class="fa fa-user-md fa-2x"></i>
+                    <span class="nav-text">
+                        Médicos Pendientes
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-envelope fa-2x"></i>
+                    <span class="nav-text">
+                        Invitar Especialista
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="vimeo.html">
+                    <i class="fab fa-vimeo-v fa-2x"></i>
+                    <span class="nav-text">
+                        Videos
+                    </span>
+                </a>
+            </li>
+            <li class="active">
+                <a href="#">
+                    <i class="fas fa-hospital-alt fa-2x"></i>
+                    <span class="nav-text">
+                        Médicos Registrados
+                    </span>
+                </a>
+            </li>
+        </ul>
+        <ul class="logout">
+            <li>
+                <a href="#" v-on:click="logout">
+                    <i class="fa fa-power-off fa-2x"></i>
+                    <span class="nav-text">
+                        Cerrar sesión
+                    </span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="table-users">
+        <div class="header">Médicos</div>
+
+        <table cellspacing="0" id="registered-Medics">
+            <tr>
+                <th>Foto</th>
+                <th>Nombre</th>
+                <th>Email</th>
+                <th>Especialidad</th>
+                <th>Cédula</th>
+            </tr>
+        </table>
+    </div>
+
+    <!--script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="js/vendor/bootstrap.min.js"></script-->
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue-resource/1.5.1/vue-resource.min.js"></script>
+    <script src="js/vendor/sweet.js"></script>
+    <script src="js/global.js"></script>
+    <script src="js/registered.js"></script>
+</body>
+
+</html>
